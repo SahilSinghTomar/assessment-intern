@@ -11,8 +11,11 @@ export async function GET(req) {
 
     response.cookies.set('token', '', {
       httpOnly: true,
+      secure: true,
       expires: new Date(0),
     });
+
+    console.log(response);
 
     return response;
   } catch (err) {
