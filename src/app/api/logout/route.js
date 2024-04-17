@@ -1,5 +1,5 @@
 import { connect } from '@/lib/dbConnect';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 connect();
 
@@ -9,11 +9,13 @@ export async function GET() {
       message: 'Logout successful',
     });
 
-    console.log(response.cookies);
+    // Set cache-control headers to prevent caching
+    response.headers.append('Cache-Control', 'no-store');
+    response.headers.append('Pragma', 'no-cache');
+    response.headers.append('Expires', '0');
 
     response.cookies.set('token', '', {
       httpOnly: true,
-      secure: true,
       expires: new Date(0),
     });
 
