@@ -31,9 +31,9 @@ const ProfileLayout = ({ children }) => {
     getPP();
   }, []);
 
-  const handleLogout = () => {
-    setShowConfirmation(true);
-  };
+  // const handleLogout = () => {
+  //   setShowConfirmation(true);
+  // };
 
   const handleConfirmLogout = async () => {
     try {
@@ -97,20 +97,20 @@ const ProfileLayout = ({ children }) => {
                 >
                   Profile
                 </Link>
-                <a
+                <Link
                   href="#"
-                  onClick={handleLogout}
-                  className="hover:bg-pink-600 hover:text-white text-red-500 block px-4 py-2 text-sm"
+                  onClick={handleConfirmLogout}
+                  className="cursor-pointer hover:bg-pink-600 hover:text-white text-red-500 block px-4 py-2 text-sm"
                 >
                   Signout
-                </a>
-                {showConfirmation && (
+                </Link>
+                {/* {showConfirmation && (
                   <LogoutConfirmation
                     onConfirm={handleConfirmLogout}
                     setShowConfirmation={setShowConfirmation}
                     setIsDropdownOpen={setIsDropdownOpen}
                   />
-                )}
+                )} */}
               </div>
             )}
           </div>
